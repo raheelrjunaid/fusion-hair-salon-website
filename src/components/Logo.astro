@@ -1,6 +1,16 @@
 ---
+import { Picture } from '@astrojs/image/components';
 ---
 
-<span class="self-center ml-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  🚀 AstroWind</span
->
+<Picture
+  class="mx-auto w-32"
+  widths={[400]}
+  sizes="(max-width: 100px) 50px"
+  loading="eager"
+  src={import('~/assets/images/light-logo.png')}
+  alt="AstroWind Hero Image"
+/>
+
+<!-- aspectRatio={600 / 600} -->
+<!-- width={600} -->
+<!-- height={600} -->

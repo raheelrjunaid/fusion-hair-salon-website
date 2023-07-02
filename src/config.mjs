@@ -12,7 +12,7 @@ const CONFIG = {
     '🚀 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.',
   defaultImage: defaultImage,
 
-  defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  defaultTheme: 'light:only', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
   language: 'en',
   textDirection: 'ltr',
@@ -28,7 +28,7 @@ const CONFIG = {
   googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
 
   blog: {
-    disabled: false,
+    disabled: true,
     postsPerPage: 4,
 
     post: {
