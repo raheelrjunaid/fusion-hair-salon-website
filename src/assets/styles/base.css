@@ -20,15 +20,15 @@
   }
   
   .btn {
-    @apply inline-flex items-center justify-center rounded-xl shadow-md border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-2.5 px-3 md:px-5 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600
+    @apply inline-flex items-center justify-center rounded-xl shadow-md border-zinc-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-2.5 px-4 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:border-zinc-600
   }
 
   .btn-ghost {
-    @apply border-none shadow-none text-muted hover:text-gray-900
+    @apply border-none shadow-none text-muted hover:text-zinc-900
   }
 
   .btn-primary {
-    @apply font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white
+    @apply font-semibold bg-primary text-white border-primary hover:brightness-200
   }
 
   .btn-primary.accent {
