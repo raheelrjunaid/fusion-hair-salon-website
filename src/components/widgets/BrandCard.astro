@@ -1,7 +1,12 @@
 ---
 export interface Props {
-  image: string;
+  imageUrl: string;
+  alt?: string;
 }
 
-const { image } = Astro.props;
+const { imageUrl, alt = '' } = Astro.props;
 ---
+
+<div class="w-full bg-white border-zinc-200 border rounded-lg p-5 shadow relative m-auto min-w-[200px]">
+  <img class="w-full h-auto object-contain aspect-[25/9]" src={imageUrl} alt={alt} />
+</div>
