@@ -32,7 +32,7 @@
   }
 
   .btn-primary.accent {
-    @apply font-semibold bg-secondary text-white border-secondary hover:bg-secondary hover:border-secondary hover:brightness-150
+    @apply font-semibold bg-secondary text-white border-secondary hover:bg-secondary hover:border-secondary hover:brightness-150;
   }
 
   .btn-white {

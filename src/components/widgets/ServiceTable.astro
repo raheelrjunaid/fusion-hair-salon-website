@@ -1,0 +1,25 @@
+---
+import { Service } from './Features2.astro';
+
+export interface Props {
+  services: Service[];
+}
+
+function formatPrice(price: number): string {
+  const formattedPrice = price.toFixed(2); // Format price with two decimal places
+  return `$${formattedPrice}`; // Add dollar sign prefix
+}
+
+const { services } = Astro.props;
+---
+
+<div class="bg-white border border-gray-200 rounded-lg px-6 py-3 divide-y divide-gray-200">
+  {
+    services.map((service) => (
+      <div class="flex items-center justify-between py-2">
+        <div class="flex-grow">{service.name}</div>
+        <div class="text-right">{formatPrice(service.price)}</div>
+      </div>
+    ))
+  }
+</div>
