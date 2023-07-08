@@ -6,15 +6,15 @@ export const headerData = {
     },
     {
       text: 'Services',
-      href: '#',
+      href: '/services',
     },
     {
       text: 'About',
-      href: '#',
+      href: '/about',
     },
     {
       text: 'Contact',
-      href: '#',
+      href: '/contact',
     },
   ],
   actions: [{ type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }],

@@ -8,9 +8,9 @@ export interface Props {
   subtitle?: string;
   content?: string;
   callToAction2?: {
-      text: string;
-  href: string;
-  icon?: string;
+    text: string;
+    href: string;
+    icon?: string;
   };
   image?: string | any; // TODO: find HTMLElementProps
 }
@@ -48,7 +48,12 @@ const {
             {
               callToAction2 && (
                 <div class="flex w-full sm:w-auto">
-                            <CallToAction text={callToAction2.text} href={callToAction2.href} icon="tabler:phone" class="btn-white accent" />
+                  <CallToAction
+                    text={callToAction2.text}
+                    href={callToAction2.href}
+                    icon="tabler:phone"
+                    class="btn-white accent"
+                  />
                 </div>
               )
             }

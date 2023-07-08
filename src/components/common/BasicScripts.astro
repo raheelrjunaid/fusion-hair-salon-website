@@ -92,9 +92,10 @@ import { SITE } from '~/config.mjs';
 
     function appyHeaderStylesOnScroll() {
       const header = document.getElementById('header');
+      const url = new URL(window.location.href);
       if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
         document.getElementById('header').classList.add('scroll');
-      } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
+      } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')  && url.pathname === '/') {
         document.getElementById('header').classList.remove('scroll');
       }
       ticking = false;

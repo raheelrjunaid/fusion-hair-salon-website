@@ -20,7 +20,7 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center rounded-xl shadow-md border-zinc-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-2.5 px-4 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:border-zinc-600;
+    @apply inline-flex items-center justify-center rounded-xl shadow-md border-zinc-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-2.5 px-4 ease-in duration-200 focus:ring-gray-500 focus:ring-offset-gray-200 focus:ring-2 focus:ring-offset-2 hover:border-zinc-600;
   }
 
   .btn-ghost {
@@ -32,7 +32,7 @@
   }
 
   .btn-primary.accent {
-    @apply font-semibold bg-secondary text-white border-secondary hover:bg-secondary hover:border-secondary hover:text-white;
+    @apply font-semibold bg-secondary text-white border-secondary hover:bg-secondary hover:border-secondary hover:brightness-150
   }
 
   .btn-white {
@@ -40,7 +40,7 @@
   }
 
   .btn-white.accent {
-    @apply font-semibold bg-white text-secondary border-secondary hover:bg-secondary hover:border-secondary hover:text-white;
+    @apply font-semibold bg-white text-secondary border-secondary hover:bg-secondary hover:border-secondary;
   }
 }
 

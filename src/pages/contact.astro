@@ -1,0 +1,48 @@
+---
+import { SITE } from '~/config.mjs';
+import { Picture } from '@astrojs/image/components';
+
+import Layout from '~/layouts/PageLayout.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+<Content
+  isReversed
+  image={{
+    src: import('~/assets/images/caos.jpg'),
+    alt: 'Colorful Image',
+  }}
+>
+  <Fragment slot="content">
+    <h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tight mb-4 font-heading">
+      Ad vix debet docendi
+    </h2>
+    Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod
+    tacimates.
+    <div class="mt-6">
+      <CallToAction text="Careers" href="#" />
+    </div>
+  </Fragment>
+</Content>
+
+<section class="md:py-20 py-12 text-center bg-teal-50 text-teal-900 relative">
+  <h2 class="mb-4 font-heading font-bold leading-tighter tracking-tight text-4xl">
+    Astro + <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+  </h2>
+  <p class="text-teal-700 dark:text-slate-400 text-xl">
+    Be very surprised by these huge fake numbers you are seeing on this page.<br class="hidden md:inline" />Don't waste
+    more time! :P
+  </p>
+  <div class="mt-8">
+    <CallToAction text="Book and Appointment" href="#" class="btn-primary accent"/>
+  </div>
+</section>
+</Layout>
