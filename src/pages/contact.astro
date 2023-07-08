@@ -1,0 +1,51 @@
+---
+import { SITE } from '~/config.mjs';
+import { Picture } from '@astrojs/image/components';
+
+import Layout from '~/layouts/PageLayout.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2505.9452433368406!2d-113.9597669223192!3d51.09101804103461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5371649f0f14576f%3A0x97954e5b8d3ce795!2sFusion%20Hair%20and%20Body%20Salon!5e0!3m2!1sen!2sca!4v1688830973695!5m2!1sen!2sca"
+  width="100%"
+  height="300"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <section>
+    <div class="container grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto px-4 py-14">
+      <div>
+        <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Lorem ipsum</h3>
+        <p class="text-lg mb-5">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus
+          tempus nulla.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Lorem ipsum</h3>
+        <p class="text-lg mb-5">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus
+          tempus nulla.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Lorem ipsum</h3>
+        <p class="text-lg mb-5">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus
+          tempus nulla.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
