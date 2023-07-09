@@ -17,6 +17,7 @@ const { heroSection, missionStatement } = await getSingleton('aboutPage');
 ---
 
 <Layout {meta}>
+  <div class="pointer-events-none h-24" />
   <Content
     isReversed
     image={{
@@ -36,6 +37,7 @@ const { heroSection, missionStatement } = await getSingleton('aboutPage');
   </Content>
 
   <section class="md:py-20 py-12 text-center bg-teal-50 text-teal-900 relative">
+    <div class="container">
     <h2 class="mb-4 font-heading font-bold leading-tighter tracking-tight text-4xl">
       {missionStatement.title}
     </h2>
@@ -44,6 +46,7 @@ const { heroSection, missionStatement } = await getSingleton('aboutPage');
     </p>
     <div class="mt-8">
       <CallToAction text="Book an Appointment" href="/contact" class="btn-primary accent" />
+    </div>
     </div>
   </section>
 </Layout>

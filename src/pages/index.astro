@@ -23,7 +23,7 @@ const testimonials = await getCollection('testimonial');
 
 <Layout {meta}>
   <Hero2
-    callToAction2={{ text: 'Call Now', href: 'https://github.com/onwidget/astrowind', icon: 'tabler:phone' }}
+    callToAction2={{ text: 'Call Now', href: '/contact', icon: 'tabler:phone' }}
     image={{ src: import('~/assets/images/teal-woman.png'), alt: 'AstroWind Hero Image' }}
   >
     <Fragment slot="title">
@@ -56,7 +56,7 @@ const testimonials = await getCollection('testimonial');
       </h2>
       {aboutSection.description}
       <div class="mt-6">
-        <CallToAction text="Services" href="#" icon="tabler:scissors" class="btn-primary" />
+        <CallToAction text="Services" href="/services" icon="tabler:scissors" class="btn-primary" />
       </div>
     </Fragment>
   </Content>
