@@ -25,7 +25,7 @@ const serviceSection = defineType({
           to: [{type: 'service'}],
         },
       ],
-      validation: (Rule) => Rule.unique(),
+      validation: (Rule) => Rule.unique().required(),
     }),
   ],
 })
