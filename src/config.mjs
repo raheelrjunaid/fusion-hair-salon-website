@@ -1,15 +1,15 @@
 import defaultImage from './assets/images/default.png';
 
 const CONFIG = {
-  name: 'AstroWind',
+  name: 'Fusion Hair and Body Salon',
 
-  origin: 'https://astrowind.vercel.app',
+  origin: 'https://www.fusionbeautysalon.com',
   basePathname: '/',
   trailingSlash: false,
 
-  title: 'AstroWind — Free template for create a website with Astro + Tailwind CSS',
+  title: 'Fusion Hair and Body Salon - Hair Salon in Calgary, AB',
   description:
-    '🚀 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.',
+    'Fusion Hair and Body Salon is a full service hair salon in Calgary, AB. We offer haircuts, hair colour, hair extensions, and more. Book an appointment today!',
   defaultImage: defaultImage,
 
   defaultTheme: 'light:only', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
@@ -24,7 +24,7 @@ const CONFIG = {
     timeZone: 'UTC',
   }),
 
-  googleAnalyticsId: false, // or "G-XXXXXXXXXX",
+  googleAnalyticsId: G - CKT639C0J0, // or "G-XXXXXXXXXX",
   googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
 
   blog: {
