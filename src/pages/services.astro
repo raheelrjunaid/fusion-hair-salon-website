@@ -1,6 +1,8 @@
 ---
 import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
+import {client, getSingleton} from '../utils/sanity.ts';
+import groq from 'groq';
 
 import Features2 from '~/components/widgets/Features2.astro';
 
@@ -9,88 +11,18 @@ const meta = {
   description: SITE.description,
   dontUseTitleTemplate: true,
 };
+const {title, description} = await getSingleton('servicesPage');
+const serviceSections = await client.fetch(groq`*[_type == "serviceSection"]{
+  title,
+  description,
+  services[] -> 
+}`)
 ---
 
 <Layout {meta}>
   <Features2
-    title="Services"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    sections={[
-      {
-        services: [
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-        ],
-      },
-      {
-        title: 'Lorem ipsum dolor sit amet',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.',
-
-        services: [
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-          {
-            name: 'Lorem ipsum dolor',
-            price: 10,
-          },
-        ],
-      },
-    ]}
+    title={title}
+    subtitle={description}
+    sections={serviceSections}
   />
 </Layout>

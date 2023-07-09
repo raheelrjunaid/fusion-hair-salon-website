@@ -17,8 +17,8 @@ const { services } = Astro.props;
   {
     services.map((service) => (
       <div class="flex items-center justify-between py-2">
-        <div class="flex-grow">{service.name}</div>
-        <div class="text-right">{formatPrice(service.price)}</div>
+        <div class="flex-grow text-left">{service.title}</div>
+        <div class="text-right">{service.price && formatPrice(service.price)}</div>
       </div>
     ))
   }

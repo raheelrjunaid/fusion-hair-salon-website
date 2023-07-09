@@ -1,6 +1,8 @@
 ---
 import { SITE } from '~/config.mjs';
 import { Picture } from '@astrojs/image/components';
+import { getSingleton } from '../utils/sanity.ts';
+import { urlFor } from '../utils/image.ts';
 
 import Layout from '~/layouts/PageLayout.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -11,38 +13,37 @@ const meta = {
   description: SITE.description,
   dontUseTitleTemplate: true,
 };
+const { heroSection, missionStatement } = await getSingleton('aboutPage');
 ---
 
 <Layout {meta}>
   <Content
     isReversed
     image={{
-      src: import('~/assets/images/caos.jpg'),
-      alt: 'Colorful Image',
+      src: urlFor(heroSection.image).url(),
+      alt: 'Hero Image',
     }}
   >
     <Fragment slot="content">
       <h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tight mb-4 font-heading">
-        Ad vix debet docendi
+        {heroSection.title}
       </h2>
-      Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod
-      tacimates.
+      {heroSection.description}
       <div class="mt-6">
-        <CallToAction text="Careers" href="#" />
+        <CallToAction text="Careers" href="/contact" />
       </div>
     </Fragment>
   </Content>
 
   <section class="md:py-20 py-12 text-center bg-teal-50 text-teal-900 relative">
     <h2 class="mb-4 font-heading font-bold leading-tighter tracking-tight text-4xl">
-      Astro + <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      {missionStatement.title}
     </h2>
-    <p class="text-teal-700 dark:text-slate-400 text-xl">
-      Be very surprised by these huge fake numbers you are seeing on this page.<br class="hidden md:inline" />Don't
-      waste more time! :P
+    <p class="text-teal-700 dark:text-slate-400 text-xl max-w-xl mx-auto">
+      {missionStatement.description}
     </p>
     <div class="mt-8">
-      <CallToAction text="Book and Appointment" href="#" class="btn-primary accent" />
+      <CallToAction text="Book an Appointment" href="/contact" class="btn-primary accent" />
     </div>
   </section>
 </Layout>

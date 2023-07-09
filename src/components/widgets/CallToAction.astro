@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 ---
 
-<a class:list={['btn w-full sm:w-auto', className]} href={href} target="_blank" rel="noopener">
+<a class:list={['btn w-full sm:w-auto', className]} href={href} rel="noopener">
   {text}
   {icon && <Icon name={icon} class="w-5 h-5 ml-2.5 -mr-1.5" />}
 </a>

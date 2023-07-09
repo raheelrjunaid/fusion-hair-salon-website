@@ -2,16 +2,16 @@
 export interface Props {
   name: string;
   role: string;
-  testimonial: string;
+  quote: string;
 }
 
-const { name, role, testimonial } = Astro.props;
+const { name, role, quote } = Astro.props;
 ---
 
 <article
   class="w-full bg-white border-zinc-200 border rounded-lg p-5 shadow-lg [&:not(:first-child)]:hidden md:[&:nth-child(2)]:block lg:[&:nth-child(3)]:block"
 >
-  <p class="text-xl text-heading dark:text-slate-400">"{testimonial}"</p>
+  <p class="text-xl text-heading dark:text-slate-400">"{quote}"</p>
   <h3 class="mt-4 font-bold">{name}</h3>
   <caption>{role}</caption>
 </article>

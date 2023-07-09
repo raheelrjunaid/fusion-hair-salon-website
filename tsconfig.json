@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "strictNullChecks": true,
+    "module": "esnext",
     "allowJs": true,
     "baseUrl": ".",
     "paths": {

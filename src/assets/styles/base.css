@@ -40,7 +40,7 @@
   }
 
   .btn-white.accent {
-    @apply font-semibold bg-white text-secondary border-secondary hover:bg-secondary hover:border-secondary;
+    @apply font-semibold bg-white text-secondary border-secondary hover:bg-secondary hover:border-secondary hover:text-white;
   }
 }
 

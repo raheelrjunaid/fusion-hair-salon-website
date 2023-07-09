@@ -1,6 +1,8 @@
 ---
 import { SITE } from '~/config.mjs';
 import { Picture } from '@astrojs/image/components';
+import { getCollection, getSingleton } from '../utils/sanity.ts';
+import { urlFor } from '../utils/image.ts';
 
 import Layout from '~/layouts/PageLayout.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
@@ -14,6 +16,9 @@ const meta = {
   description: SITE.description,
   dontUseTitleTemplate: true,
 };
+
+const { heroSection, aboutSection, ctaSection, brandsSection } = await getSingleton('homePage');
+const testimonials = await getCollection('testimonial');
 ---
 
 <Layout {meta}>
@@ -22,40 +27,34 @@ const meta = {
     image={{ src: import('~/assets/images/teal-woman.png'), alt: 'AstroWind Hero Image' }}
   >
     <Fragment slot="title">
-      Free template for <br />
-      <span class="text-accent dark:text-white highlight"> Astro 2.0</span> + Tailwind CSS
+      {heroSection.title}
     </Fragment>
 
     <Fragment slot="subtitle">
-      Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.
+      {heroSection.description}
     </Fragment>
   </Hero2>
 
-  <section class="flex flex-col md:flex-row container px-4 mx-auto gap-5 -mt-5 relative">
+  <section class="flex flex-col md:flex-row container mx-auto gap-5 -mt-5 relative">
     {
-      Array.from({ length: 3 }, () => (
-        <Testimonial
-          name="John Doe"
-          role="CEO at Company"
-          testimonial="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla."
-        />
-      ))
+      testimonials
+        .slice(0, 3)
+        .map((testimonial) => <Testimonial name={testimonial.name} role={testimonial.role} quote={testimonial.quote} />)
     }
   </section>
 
   <Content
     isReversed
     image={{
-      src: import('~/assets/images/caos.jpg'),
+      src: urlFor(aboutSection.image).url(),
       alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
       <h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tight mb-4 font-heading">
-        Ad vix debet docendi
+        {aboutSection.title}
       </h2>
-      Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod
-      tacimates.
+      {aboutSection.description}
       <div class="mt-6">
         <CallToAction text="Services" href="#" icon="tabler:scissors" class="btn-primary" />
       </div>
@@ -70,15 +69,8 @@ const meta = {
       sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
       widths={[1800, 2400]}
     />
-    <div class="container flex flex-row gap-5 mx-auto overflow-x-auto px-4">
-      {
-        Array.from({ length: 4 }, () => (
-          <BrandCard
-            imageUrl="https://cdn.shopify.com/s/files/1/0605/7200/8597/files/eminence-logo-with-transparent-background.png"
-            alt="Brand Logo"
-          />
-        ))
-      }
+    <div class="container flex flex-row gap-5 mx-auto overflow-x-auto">
+      {brandsSection.brandImages.map((image) => <BrandCard imageUrl={urlFor(image).url()} alt="Brand Logo" />)}
     </div>
     <div class="container max-w-lg mx-auto text-teal-500 flex items-center gap-5 my-10">
       <div class="w-full">
@@ -92,33 +84,32 @@ const meta = {
       </div>
     </div>
     <h2 class="mb-4 font-heading font-bold leading-tighter tracking-tight text-4xl">
-      Astro + <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      {brandsSection.title}
     </h2>
-    <p class="text-teal-700 dark:text-slate-400 text-xl">
-      Be very surprised by these huge fake numbers you are seeing on this page.<br class="hidden md:inline" />Don't
-      waste more time! :P
+    <p class="text-teal-700 dark:text-slate-400 text-xl max-w-xl mx-auto">
+      {brandsSection.description}
     </p>
   </section>
 
   <section class="bg-gray-800 text-white">
-    <div class="container flex flex-col md:flex-row gap-10 mx-auto px-4 py-14">
+    <div class="container flex flex-col md:flex-row gap-10 mx-auto py-14">
       <div>
-        <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Lorem ipsum</h3>
+        <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+          {ctaSection.firstCTA.title}
+        </h3>
         <p class="text-gray-300 text-lg mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus
-          tempus nulla.
+          {ctaSection.firstCTA.description}
         </p>
-        <CallToAction text="Call Now" href="#" icon="tabler:phone" class="btn-white" />
+        <CallToAction text="Call Now" href="/contact" icon="tabler:phone" class="btn-white" />
       </div>
       <div>
-        <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Lorem ipsum</h3>
+        <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">{ctaSection.secondCTA.title}</h3>
         <p class="text-gray-300 text-lg mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus
-          tempus nulla.
+          {ctaSection.secondCTA.description}
         </p>
         <div class="flex justify-start gap-3">
-          <CallToAction text="Call Now" href="#" icon="tabler:phone" class="btn-white" />
-          <CallToAction text="Careers" href="#" icon="tabler:phone" class="text-white" />
+          <CallToAction text="About Us" href="/about" class="btn-white" />
+          <CallToAction text="Careers" href="/contact" icon="tabler:phone" class="text-white" />
         </div>
       </div>
     </div>
